@@ -2,6 +2,7 @@ using Fusion;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -39,8 +40,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+       
         Move();
         Jump();
+        rotationCheck();
     }
 
     #region Movement Functions
@@ -105,15 +108,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isFacingRight)
         {
-            Vector3 rotator = new Vector3(transform.position.x, 180f, transform.position.z);
-            transform.rotation = Quaternion.Euler(rotator);
+            rotationCheck();
             isFacingRight = false;
         }
         else
         {
+            rotationCheck();
+            isFacingRight = true;
+        }
+    }
+
+    private void rotationCheck()
+    {
+        if (isFacingRight)
+        {
             Vector3 rotator = new Vector3(transform.position.x, 0f, transform.position.z);
             transform.rotation = Quaternion.Euler(rotator);
-            isFacingRight = true;
+        }
+        else
+        {
+            Vector3 rotator = new Vector3(transform.position.x, 180f, transform.position.z);
+            transform.rotation = Quaternion.Euler(rotator);
         }
     }
     #endregion
