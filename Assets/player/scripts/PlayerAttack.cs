@@ -10,7 +10,12 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private LayerMask attackableLayer;
     [SerializeField] private float damageAmmount = 1f;
+    private PlayerMovement player;
 
+    private void Start()
+    {
+        player = GetComponent<PlayerMovement>();
+    }
 
     private void Update()
     {
@@ -22,19 +27,29 @@ public class PlayerAttack : MonoBehaviour
         {
             AttackDown();
         }
-        if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame())
+        if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame() && player.isFacingRight == false)
         {
-            AttackLeft();
+            AttackBackward();
         }
-        if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame())
+        else if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame() && player.isFacingRight == true)
         {
-            AttackRight();
+            AttackFoward();
         }
+        if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame() && player.isFacingRight == true)
+        {
+            AttackFoward();
+        }
+        else if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame() && player.isFacingRight == false)
+        {
+            AttackBackward();
+        }
+
     }
 
     #region Attacks
     private void AttackUp()
     {
+        Debug.Log("AttackedUp");
         hits = Physics2D.CircleCastAll(attackTransformup.position, attackRange, transform.up, 0f, attackableLayer);
         for (int i = 0; i < hits.Length; i++)
         {
@@ -48,6 +63,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void AttackDown()
     {
+        Debug.Log("AttackedDown");
         hits = Physics2D.CircleCastAll(attackTransformdown.position, attackRange, transform.up, 0f, attackableLayer);
         for (int i = 0; i < hits.Length; i++)
         {
@@ -59,8 +75,9 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void AttackLeft()
+    private void AttackBackward()
     {
+        Debug.Log("AttackedLeft");
         hits = Physics2D.CircleCastAll(attackTransformleft.position, attackRange, transform.up, 0f, attackableLayer);
         for (int i = 0; i < hits.Length; i++)
         {
@@ -72,8 +89,9 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void AttackRight()
+    private void AttackFoward()
     {
+        Debug.Log("AttackedRight");
         hits = Physics2D.CircleCastAll(attackTransformright.position, attackRange, transform.up, 0f, attackableLayer);
         for (int i = 0; i < hits.Length; i++)
         {

@@ -338,6 +338,7 @@ MonoBehaviour:
   attackableLayer:
     serializedVersion: 2
     m_Bits: 128
+  damageAmmount: 1
 --- !u!1 &6861477851550315206
 GameObject:
   m_ObjectHideFlags: 0
