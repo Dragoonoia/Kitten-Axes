@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using Fusion;
 
 public class UserInput : MonoBehaviour
 

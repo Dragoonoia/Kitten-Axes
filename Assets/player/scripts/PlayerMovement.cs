@@ -4,8 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
+    cameraFollow cameracode;
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 7f;
     [Header("Jumponthecadillac")]
@@ -30,27 +31,35 @@ public class PlayerMovement : MonoBehaviour
 
     private RaycastHit2D groundhit;
 
+    private GameObject camera;
+    
     
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+        
+        cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
+        cameracode.SetCameraTarget();
     }
 
     private void Update()
     {
+        moveInput = UserInput.instance.moveInput.x;
+    }
+    public override void FixedUpdateNetwork()
+    {
        
         Move();
         Jump();
-        rotationCheck();
+        
     }
 
     #region Movement Functions
     private void Move()
     {
-        moveInput = UserInput.instance.moveInput.x;
-
+        
         body.linearVelocity = new Vector2(moveInput * moveSpeed, body.linearVelocity.y);
         if (moveInput > 0 || moveInput < 0)
         {
