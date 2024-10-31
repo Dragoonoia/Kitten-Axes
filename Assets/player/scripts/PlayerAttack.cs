@@ -10,6 +10,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private LayerMask attackableLayer;
     [SerializeField] private float damageAmmount = 1f;
+
+    [SerializeField] private float attackStamina = 0f;
     private PlayerMovement player;
 
     private void Start()
@@ -19,7 +21,15 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (UserInput.instance.controls.Attack.AttackUp.WasPressedThisFrame())
+        if (attackStamina > 0f)
+        {
+            attackStamina -= Time.deltaTime;
+        }
+        if (attackStamina < 0f)
+        {
+            attackStamina = 0;
+        }
+        if (UserInput.instance.controls.Attack.AttackUp.WasPressedThisFrame() && attackStamina == 0f)
         {
             AttackUp();
         }
