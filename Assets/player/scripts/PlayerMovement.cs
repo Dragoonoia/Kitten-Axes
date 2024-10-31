@@ -122,12 +122,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isFacingRight)
         {
-            Vector3 rotator = new Vector3(transform.position.x, 180f, transform.position.z);
+            Vector3 rotator = new Vector3(transform.position.x, 0f, transform.position.z);
             transform.rotation = Quaternion.Euler(rotator);
         }
         else
         {
-            Vector3 rotator = new Vector3(transform.position.x, 0f, transform.position.z);
+            Vector3 rotator = new Vector3(transform.position.x, 180f, transform.position.z);
             transform.rotation = Quaternion.Euler(rotator);
         }
     }
