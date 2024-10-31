@@ -4,8 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
+    cameraFollow cameracode;
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 7f;
     [Header("Jumponthecadillac")]
@@ -30,20 +31,25 @@ public class PlayerMovement : MonoBehaviour
 
     private RaycastHit2D groundhit;
 
-    
-
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+
+        cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
+        cameracode.SetCameraTarget();
     }
 
     private void Update()
+    { 
+      
+    }
+    public override void FixedUpdateNetwork()
     {
-       
+
         Move();
         Jump();
-        rotationCheck();
+
     }
 
     #region Movement Functions
@@ -63,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     #region Jump Functions
     private void Jump()
     {
-       if (UserInput.instance.controls.Jumpin.Jumpin.WasPressedThisFrame() && isGrounded())
+        if (UserInput.instance.controls.Jumpin.Jumpin.WasPressedThisFrame() && isGrounded())
         {
             //pushed :D
             isJumpin = true;
@@ -71,9 +77,9 @@ public class PlayerMovement : MonoBehaviour
             body.linearVelocity = new Vector2(body.linearVelocityX, jumpForce);
         }
 
-       if (UserInput.instance.controls.Jumpin.Jumpin.IsPressed())
+        if (UserInput.instance.controls.Jumpin.Jumpin.IsPressed())
         {
-            if (jumptimeCounter >0 && isJumpin)
+            if (jumptimeCounter > 0 && isJumpin)
             {
                 body.linearVelocity = new Vector2(body.linearVelocityX, jumpForce);
                 jumptimeCounter -= Time.deltaTime;
@@ -83,9 +89,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 isJumpin = false;
             }
-            
+
         }
-       if (UserInput.instance.controls.Jumpin.Jumpin.WasReleasedThisFrame())
+        if (UserInput.instance.controls.Jumpin.Jumpin.WasReleasedThisFrame())
         {
             isJumpin = false;
         }
@@ -99,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Turn();
         }
-        else if (UserInput.instance.moveInput.x <0 && isFacingRight)
+        else if (UserInput.instance.moveInput.x < 0 && isFacingRight)
         {
             Turn();
         }
