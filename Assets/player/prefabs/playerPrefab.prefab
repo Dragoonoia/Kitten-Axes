@@ -208,6 +208,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 2826488722857190366}
+  - {fileID: 2268416268937097899}
 --- !u!114 &2826488722857190366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +340,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   damageAmmount: 1
-  attackStamina: 0
 --- !u!1 &6861477851550315206
 GameObject:
   m_ObjectHideFlags: 0
