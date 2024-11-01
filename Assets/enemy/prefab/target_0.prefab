@@ -189,9 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c758156bc6825fd48acf6f4f91ade9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 0}
-  pointB: {fileID: 0}
-  PAball: {fileID: 0}
-  PBball: {fileID: 0}
   speed: 5
   goingright: 0
+  walktime: 0

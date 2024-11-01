@@ -37,7 +37,7 @@ public class PlayerMovement : NetworkBehaviour
         collider = GetComponent<Collider2D>();
 
         cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
-        //cameracode.SetCameraTarget();
+        cameracode.SetCameraTarget();
     }
 
     private void Update()
