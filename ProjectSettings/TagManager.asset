@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - enemywalkswitch
+  - PlayerGaming
   layers:
   - Default
   - TransparentFX

@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 3531344344292484707}
   m_Layer: 0
   m_Name: playerPrefab
-  m_TagString: Untagged
+  m_TagString: PlayerGaming
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,12 +240,12 @@ MonoBehaviour:
   moveSpeed: 7
   jumpForce: 12
   jumpTime: 0.35
-  isFacingRight: 0
+  isFacingRight: 1
   sprite: {fileID: 0}
   extraheight: 0.25
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!61 &1429395416461337220
 BoxCollider2D:
   m_ObjectHideFlags: 0

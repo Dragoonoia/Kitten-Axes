@@ -42,14 +42,14 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Update()
     {
-        Move();
-        Jump();
+        
     }
     public override void FixedUpdateNetwork()
     {
 
-        
 
+        Move();
+        Jump();
     }
 
     #region Movement Functions
@@ -128,12 +128,12 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (isFacingRight)
         {
-            Vector3 rotator = new Vector3(transform.position.x, 0f, transform.position.z);
+            Vector3 rotator = new Vector3(transform.position.x, 180f, transform.position.z);
             transform.rotation = Quaternion.Euler(rotator);
         }
         else
         {
-            Vector3 rotator = new Vector3(transform.position.x, 180f, transform.position.z);
+            Vector3 rotator = new Vector3(transform.position.x, 0f, transform.position.z);
             transform.rotation = Quaternion.Euler(rotator);
         }
     }
