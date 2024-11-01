@@ -2,24 +2,28 @@ using UnityEngine;
 
 public class cameraFollow : MonoBehaviour
 {
-    private Vector3 offset = new Vector3 (0f, 0f, -10f);
-    private float smoothTime = 0.25f;
-    private Vector3 velocity = Vector3.zero;
+    private float followSpeed = 2f;
     [SerializeField] private GameObject player;
-    [SerializeField] private Transform target;
-        void Update()
+    private Transform target;
+
+    public void SetCameraTarget()
     {
-        Vector3 targetposition = transform.position + offset;
-        transform.position = Vector3.SmoothDamp(transform.position, targetposition, ref velocity, smoothTime);
+        player = GameObject.FindGameObjectWithTag("PlayerGaming");
+        target = player.transform;
+    }
+    void Update()
+    {
+        Vector3 newPos = new Vector3(target.position.x, target.position.y, -10f);
+        transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
     }
 
     void LateUpdate()
     {
-        
+
     }
 
     private void FixedUpdate()
     {
-        
+
     }
 }
