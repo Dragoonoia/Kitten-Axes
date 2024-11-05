@@ -210,6 +210,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 2826488722857190366}
   - {fileID: 2268416268937097899}
+  - {fileID: 3531344344292484707}
 --- !u!114 &2826488722857190366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051cbc3ae60e00f41af792220a1aba12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 12
   jumpForce: 12
   jumpTime: 0.35
   isFacingRight: 1
@@ -319,7 +320,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3531344344292484707
 MonoBehaviour:
   m_ObjectHideFlags: 0

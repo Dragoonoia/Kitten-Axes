@@ -1,6 +1,7 @@
 using UnityEngine;
+using Fusion;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : NetworkBehaviour
 {
     private RaycastHit2D[] hits;
     [SerializeField] private Transform attackTransformup;
@@ -22,9 +23,9 @@ public class PlayerAttack : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    
 
-    private void Update()
+
+    public override void FixedUpdateNetwork()
     {
         if (attackStamina > 0f)
         {

@@ -80,7 +80,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (UserInput.instance.controls.Jumpin.Jumpin.WasPressedThisFrame() && isGrounded())
         {
-            //pushed :D
+            animator.SetTrigger("Jump");
             isJumpin = true;
             jumptimeCounter = jumpTime;
             body.linearVelocity = new Vector2(body.linearVelocityX, jumpForce);
