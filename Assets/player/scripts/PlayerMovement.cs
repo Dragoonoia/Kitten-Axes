@@ -22,6 +22,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private Rigidbody2D body;
     private Collider2D collider;
+    private SpriteRenderer spright;
     private float moveInput;
 
 
@@ -35,6 +36,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+        spright = GetComponent<SpriteRenderer>();
 
         cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
         cameracode.SetCameraTarget();
@@ -46,7 +48,6 @@ public class PlayerMovement : NetworkBehaviour
     }
     public override void FixedUpdateNetwork()
     {
-
 
         Move();
         Jump();
@@ -104,39 +105,30 @@ public class PlayerMovement : NetworkBehaviour
         if (UserInput.instance.moveInput.x > 0 && !isFacingRight)
         {
             Turn();
+            
         }
         else if (UserInput.instance.moveInput.x < 0 && isFacingRight)
         {
             Turn();
+            
         }
     }
     private void Turn()
     {
         if (isFacingRight)
         {
-            rotationCheck();
+           
+            spright.flipX = true;
             isFacingRight = false;
         }
         else
         {
-            rotationCheck();
+            
+            spright.flipX = false;
             isFacingRight = true;
         }
     }
 
-    private void rotationCheck()
-    {
-        if (isFacingRight)
-        {
-            Vector3 rotator = new Vector3(transform.position.x, 180f, transform.position.z);
-            transform.rotation = Quaternion.Euler(rotator);
-        }
-        else
-        {
-            Vector3 rotator = new Vector3(transform.position.x, 0f, transform.position.z);
-            transform.rotation = Quaternion.Euler(rotator);
-        }
-    }
     #endregion
     #region Ground Check
     private bool isGrounded()
