@@ -32,11 +32,14 @@ public class PlayerMovement : NetworkBehaviour
 
     private RaycastHit2D groundhit;
 
+    Animator animator;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
         spright = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
         cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
         cameracode.SetCameraTarget();
@@ -61,7 +64,12 @@ public class PlayerMovement : NetworkBehaviour
         body.linearVelocity = new Vector2(moveInput * moveSpeed, body.linearVelocity.y);
         if (moveInput > 0 || moveInput < 0)
         {
+            animator.SetBool("running", true);
             TurnCheck();
+        }
+        else if (moveInput == 0)
+        {
+            animator.SetBool("running", false);
         }
 
     }
