@@ -1,9 +1,20 @@
 using Fusion;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class menuManager : NetworkBehaviour
 {
-    private void Awake()
+    public void startarOjoguin(int NextScene)
+    {
+        SceneManager.LoadScene(NextScene);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    private void Awakening()
     {
         BTNStartGame();
     }
