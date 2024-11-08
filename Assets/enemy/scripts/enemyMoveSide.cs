@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using Fusion;
 
-public class enemyMoveSide : MonoBehaviour
+public class enemyMoveSide : NetworkBehaviour
 {
     
     private Rigidbody2D rb;
@@ -13,7 +13,7 @@ public class enemyMoveSide : MonoBehaviour
 
     private float bsize =0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         goingright = true;
@@ -22,7 +22,7 @@ public class enemyMoveSide : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (goingright == true)
         {

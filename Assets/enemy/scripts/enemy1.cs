@@ -1,6 +1,8 @@
 using UnityEngine;
+using Fusion;
+using Unity.VisualScripting;
 
-public class enemy1 : MonoBehaviour, iDamage
+public class enemy1 : NetworkBehaviour, iDamage
 {
 
     [SerializeField] private float maxHealth = 1f;
@@ -21,7 +23,7 @@ public class enemy1 : MonoBehaviour, iDamage
     }
     private void Die()
         {
-            Destroy(gameObject);
+        Runner.Despawn(Object);
         }
 }
 

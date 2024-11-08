@@ -13,8 +13,11 @@ public class cameraFollow : MonoBehaviour
     }
     void Update()
     {
-        Vector3 newPos = new Vector3(target.position.x, target.position.y, -10f);
-        transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
+        if (player != null)
+        {
+            Vector3 newPos = new Vector3(target.position.x, target.position.y, -10f);
+            transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
+        }
     }
 
     void LateUpdate()

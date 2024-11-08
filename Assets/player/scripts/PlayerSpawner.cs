@@ -4,19 +4,27 @@ using Fusion;
 public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
 {
     [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject enemySpawner;
+    [SerializeField] private GameObject enemySpawner2;
+    [SerializeField] private GameObject enemySpawner3;
     public void PlayerJoined(PlayerRef player)
     {
-
-        if (player == Runner.LocalPlayer)
+        ;
+        if (player == Runner.LocalPlayer && Runner.SessionInfo.PlayerCount == 1)
         {
-            Runner.Spawn(playerPrefab, new Vector2(0, 0), Quaternion.identity);
+            Runner.Spawn(playerPrefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+
+            Runner.Spawn(enemyPrefab, new Vector2(enemySpawner.transform.position.x, enemySpawner.transform.position.y), Quaternion.identity);
+            Runner.Spawn(enemyPrefab, new Vector2(enemySpawner2.transform.position.x, enemySpawner2.transform.position.y), Quaternion.identity);
+            Runner.Spawn(enemyPrefab, new Vector2(enemySpawner3.transform.position.x, enemySpawner3.transform.position.y), Quaternion.identity);
         }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame

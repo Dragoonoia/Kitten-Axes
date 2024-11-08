@@ -14,15 +14,5 @@ public class menuManager : NetworkBehaviour
         Application.Quit();
     }
 
-    private void Awakening()
-    {
-        BTNStartGame();
-    }
-    public void BTNStartGame()
-    {
-        Debug.Log("aooo potencia");
-        StartGameArgs args = new StartGameArgs { PlayerCount = 2, GameMode = GameMode.Shared };
-
-        NetworkRunner.Instances[0].StartGame(args);
-    }
+    
 }
