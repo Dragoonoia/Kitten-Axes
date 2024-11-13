@@ -11,11 +11,14 @@ public class enemyMoveSide : NetworkBehaviour
     [SerializeField] private bool goingright;
     [SerializeField] private float walktime;
 
+    private SpriteRenderer sprite;
+
     private float bsize =0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
         goingright = true;
 
         
@@ -28,11 +31,14 @@ public class enemyMoveSide : NetworkBehaviour
         {
             walktime += Time.deltaTime;
             rb.linearVelocityX = speed;
+            sprite.flipX = true;
+
         }
         if (goingright == false)
         {
             walktime -= Time.deltaTime;
             rb.linearVelocityX = -speed;
+            sprite.flipX = false;
         }
             if (goingright == true && walktime >= 1)
             {
