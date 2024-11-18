@@ -2,22 +2,29 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class menuManager : MonoBehaviour
 {
     [SerializeField] private GameObject Painel1;
     [SerializeField] private GameObject Painel2;
     [SerializeField] private GameObject map;
-
+    [SerializeField] private Slider desliza;
     MapAnimation abacate;
 
 
-    private void Start()
+    void Start()
     {
         Painel1.gameObject.SetActive(false);
         Painel2.gameObject.SetActive(false);
         abacate = map.GetComponent<MapAnimation>();
     }
+
+    public void ZuadaDaPorra()
+    {
+        AudioListener.volume = desliza.value;
+    }
+
     public void startarOjoguin(int NextScene)
     {
         SceneManager.LoadScene(NextScene);
