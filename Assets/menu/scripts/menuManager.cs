@@ -9,6 +9,9 @@ public class menuManager : MonoBehaviour
     [SerializeField] private GameObject Painel1;
     [SerializeField] private GameObject Painel2;
     [SerializeField] private GameObject map;
+    [SerializeField] private GameObject credits;
+    [SerializeField] private GameObject controls;
+
     [SerializeField] private Slider desliza;
     MapAnimation abacate;
 
@@ -17,6 +20,8 @@ public class menuManager : MonoBehaviour
     {
         Painel1.gameObject.SetActive(false);
         Painel2.gameObject.SetActive(false);
+        credits.gameObject.SetActive(false);
+        controls.gameObject.SetActive(false);
         abacate = map.GetComponent<MapAnimation>();
     }
 
@@ -59,6 +64,24 @@ public class menuManager : MonoBehaviour
 
     }
 
+    public void OpenCredits()
+    {
+        credits.gameObject.SetActive(true);
+    }
+    public void CloseCredits()
+    {
+        credits.gameObject.SetActive(false);
+    }
+
+    public void OpenControls()
+    {
+        controls.gameObject.SetActive(true);
+    }
+    public void CloseControls()
+    {
+        controls.gameObject.SetActive(false);
+    }
+        
 
     public void QuitGame()
     {
