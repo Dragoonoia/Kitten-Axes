@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class menuManager : MonoBehaviour
 {
+    
+
     [SerializeField] private GameObject Painel1;
     [SerializeField] private GameObject Painel2;
     [SerializeField] private GameObject map;
@@ -15,6 +17,8 @@ public class menuManager : MonoBehaviour
     [SerializeField] private Slider desliza;
     MapAnimation abacate;
 
+  
+
 
     void Start()
     {
@@ -23,6 +27,13 @@ public class menuManager : MonoBehaviour
         credits.gameObject.SetActive(false);
         controls.gameObject.SetActive(false);
         abacate = map.GetComponent<MapAnimation>();
+
+        
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void ZuadaDaPorra()
