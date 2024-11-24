@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 95cdb340a64c2004dbbfa96b2e9154f4
+guid: 08dd800ef9d03124baebb94bfb5e86d8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7684046354676129167
-    second: viking_0
+      213: 7658377062314341123
+    second: jogarbotao (1)3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -55,9 +55,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: viking_0
+      name: jogarbotao (1)3_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 90
-        width: 476
-        height: 332
+        x: 10
+        y: 4
+        width: 72
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 172e4ef5d88cc5590800000000000000
-      internalID: -7684046354676129167
+      spriteID: 303fe33cc55084a60800000000000000
+      internalID: 7658377062314341123
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jogarbotao (1)3_0: 7658377062314341123
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

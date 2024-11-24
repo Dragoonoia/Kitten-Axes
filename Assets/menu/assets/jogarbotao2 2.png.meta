@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0264877a4b124d8448c12d0086c73a17
+guid: d6998c9df869e474eb16cbcd4bf65d70
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4045175618538769124
-    second: jogarbotao2_0
+      213: -2011501380718686178
+    second: jogarbotao2 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 2
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jogarbotao2_0
+      name: jogarbotao2 2_0
       rect:
         serializedVersion: 2
-        x: 37
-        y: 30
-        width: 125
+        x: 1
+        y: 0
+        width: 124
         height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c15fcea0536acd7c0800000000000000
-      internalID: -4045175618538769124
+      spriteID: e101e01d626b514e0800000000000000
+      internalID: -2011501380718686178
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      jogarbotao2_0: -4045175618538769124
+      jogarbotao2 2_0: -2011501380718686178
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
