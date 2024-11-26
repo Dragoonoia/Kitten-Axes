@@ -11,7 +11,7 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float moveSpeed = 7f;
     [Header("Jumponthecadillac")]
     [SerializeField] private float jumpForce = 12f;
-    [SerializeField] private float jumpTime = 0.5f;
+    [SerializeField] private float jumpTime = 0;
 
     [SerializeField] public bool isFacingRight;
     [SerializeField] private GameObject sprite;
@@ -26,11 +26,13 @@ public class PlayerMovement : NetworkBehaviour
     private float moveInput;
 
 
-    private bool isJumpin;
+    [SerializeField] private bool isJumpin;
     private bool isFallin;
     private float jumptimeCounter;
 
     private RaycastHit2D groundhit;
+
+    private bool Pare;
 
     Animator animator;
 
@@ -43,6 +45,8 @@ public class PlayerMovement : NetworkBehaviour
 
         cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
         cameracode.SetCameraTarget();
+
+        Pare = false;
     }
 
     private void Update()
@@ -51,9 +55,12 @@ public class PlayerMovement : NetworkBehaviour
     }
     public override void FixedUpdateNetwork()
     {
-
-        Move();
-        Jump();
+        if (!Pare)
+        {
+            Move();
+            Jump();
+        }
+        
     }
 
     #region Movement Functions
@@ -78,32 +85,43 @@ public class PlayerMovement : NetworkBehaviour
     #region Jump Functions
     private void Jump()
     {
-        if (UserInput.instance.controls.Jumpin.Jumpin.WasPressedThisFrame() && isGrounded())
+
+        if (UserInput.instance.controls.Jumpin.Jumpin.WasPressedThisFrame() && isGrounded() && !isJumpin)
         {
-            animator.SetTrigger("Jump");
-            isJumpin = true;
-            jumptimeCounter = jumpTime;
+        animator.SetTrigger("Jump");
+        isJumpin = true;
+        jumpTime = 0.25f;
+        }
+
+        if (isJumpin && jumpTime > 0)
+        {
             body.linearVelocity = new Vector2(body.linearVelocityX, jumpForce);
+            jumpTime -= Time.deltaTime;
         }
 
-        if (UserInput.instance.controls.Jumpin.Jumpin.IsPressed())
-        {
-            if (jumptimeCounter > 0 && isJumpin)
-            {
-                body.linearVelocity = new Vector2(body.linearVelocityX, jumpForce);
-                jumptimeCounter -= Time.deltaTime;
-            }
-
-            else
-            {
-                isJumpin = false;
-            }
-
-        }
-        if (UserInput.instance.controls.Jumpin.Jumpin.WasReleasedThisFrame())
+        if (isJumpin && jumpTime <= 0)
         {
             isJumpin = false;
         }
+
+        //if (UserInput.instance.controls.Jumpin.Jumpin.IsPressed())
+        //{
+        //if (jumptimeCounter > 0 && isJumpin)
+        // {
+        //body.linearVelocity = new Vector2(body.linearVelocityX, jumpForce);
+        //jumptimeCounter -= Time.deltaTime;
+        //}
+
+        //   else
+        //{
+        //isJumpin = false;
+        //}
+
+        //}
+        //if (UserInput.instance.controls.Jumpin.Jumpin.WasReleasedThisFrame())
+        //{
+        //isJumpin = false;
+        //}
     }
 
     #endregion
