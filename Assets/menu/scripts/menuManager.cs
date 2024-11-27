@@ -1,10 +1,11 @@
 
+using Fusion;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class menuManager : MonoBehaviour
+public class menuManager : NetworkBehaviour
 {
     
 
@@ -43,7 +44,13 @@ public class menuManager : MonoBehaviour
 
     public void startarOjoguin(int NextScene)
     {
-        SceneManager.LoadScene(NextScene);
+        //SceneManager.LoadScene(NextScene);
+
+        SceneRef scene = SceneRef.FromIndex(1);
+        INetworkSceneManager sceneManager = NetworkRunner.Instances[0].GetComponent<INetworkSceneManager>();
+        StartGameArgs args = new StartGameArgs { PlayerCount = 2, GameMode = GameMode.Shared, Scene = scene, SceneManager = sceneManager };
+
+        NetworkRunner.Instances[0].StartGame(args);
     }
 
     public void OpenOptions()

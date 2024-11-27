@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8306420906324177996}
   - component: {fileID: 6277240771088218992}
   - component: {fileID: 3494563090467486761}
+  - component: {fileID: 3321361868277006986}
+  - component: {fileID: -3442783033096042439}
   m_Layer: 0
   m_Name: Caramelo (2)
   m_TagString: Untagged
@@ -134,3 +136,34 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.4145428, y: 0.5887459}
   m_EdgeRadius: 0
+--- !u!114 &3321361868277006986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5224581830547872633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f863418fee31f34eabe9f11751d790a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+--- !u!114 &-3442783033096042439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5224581830547872633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 3649296077
+  ObjectInterest: 1
+  Flags: 1
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 3321361868277006986}

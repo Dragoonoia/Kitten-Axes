@@ -13,6 +13,9 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float jumpForce = 12f;
     [SerializeField] private float jumpTime = 0;
 
+
+    [SerializeField] private float IGetKnockedDown = 0;
+
     [SerializeField] public bool isFacingRight;
     [SerializeField] private GameObject sprite;
 
@@ -51,7 +54,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Update()
     {
-        
+
     }
     public override void FixedUpdateNetwork()
     {
@@ -60,7 +63,9 @@ public class PlayerMovement : NetworkBehaviour
             Move();
             Jump();
         }
-        
+
+        Knockback();
+
     }
 
     #region Movement Functions
@@ -88,9 +93,9 @@ public class PlayerMovement : NetworkBehaviour
 
         if (UserInput.instance.controls.Jumpin.Jumpin.WasPressedThisFrame() && isGrounded() && !isJumpin)
         {
-        animator.SetTrigger("Jump");
-        isJumpin = true;
-        jumpTime = 0.25f;
+            animator.SetTrigger("Jump");
+            isJumpin = true;
+            jumpTime = 0.25f;
         }
 
         if (isJumpin && jumpTime > 0)
@@ -131,25 +136,25 @@ public class PlayerMovement : NetworkBehaviour
         if (UserInput.instance.moveInput.x > 0 && !isFacingRight)
         {
             Turn();
-            
+
         }
         else if (UserInput.instance.moveInput.x < 0 && isFacingRight)
         {
             Turn();
-            
+
         }
     }
     private void Turn()
     {
         if (isFacingRight)
         {
-           
+
             spright.flipX = true;
             isFacingRight = false;
         }
         else
         {
-            
+
             spright.flipX = false;
             isFacingRight = true;
         }
@@ -168,6 +173,31 @@ public class PlayerMovement : NetworkBehaviour
         else
         {
             return false;
+        }
+    }
+    #endregion
+
+    #region Knockback
+   private void Knockback()
+    {
+        if (IGetKnockedDown > 0)
+        {
+            Pare = true;
+            
+            if (isFacingRight)
+            {
+                body.linearVelocity = new Vector2(moveSpeed * -1.5f, body.linearVelocity.y);
+                IGetKnockedDown -= Time.deltaTime;
+            }
+            else
+            {
+                Turn();
+                body.linearVelocity = new Vector2(moveSpeed * -1.5f, body.linearVelocity.y);
+            }
+        }
+        else if (IGetKnockedDown <= 0 && Pare)
+        {
+            Pare = false;
         }
     }
     #endregion

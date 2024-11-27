@@ -25,7 +25,7 @@ public class enemyMoveSide : NetworkBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    public override void FixedUpdateNetwork()
     {
         if (goingright == true)
         {
