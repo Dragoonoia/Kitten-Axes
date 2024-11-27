@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class cameraFollow : MonoBehaviour
 {
-    private float followSpeed = 2f;
+    private float followSpeed = 4f;
     [SerializeField] private GameObject player;
     private Transform target;
 
