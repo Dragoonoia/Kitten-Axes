@@ -12,24 +12,27 @@ public class PlayerMovement : NetworkBehaviour
     [Header("Jumponthecadillac")]
     [SerializeField] private float jumpForce = 12f;
     [SerializeField] private float jumpTime = 0;
+    [SerializeField] private bool isJumpin;
 
-
+    [Header("Knock Knock")]
     [SerializeField] private float IGetKnockedDown = 0;
+    [SerializeField] private float Yeet = 0;
+    [SerializeField] private float FlyAwayNow = 0;
 
+    [Header("IsThisRight?")]
     [SerializeField] public bool isFacingRight;
     [SerializeField] private GameObject sprite;
 
     [Header("ithrewitontheGROUND")]
-    [SerializeField] private float extraheight = 0.25f;
+    [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
+    bool isGrounded;
 
     private Rigidbody2D body;
     private Collider2D collider;
     private SpriteRenderer spright;
     private float moveInput;
-
-
-    [SerializeField] private bool isJumpin;
+    
     private bool isFallin;
     private float jumptimeCounter;
 
@@ -38,6 +41,8 @@ public class PlayerMovement : NetworkBehaviour
     private bool Pare;
 
     Animator animator;
+
+    private GameObject Player2;
 
     private void Awake()
     {
@@ -54,7 +59,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Update()
     {
-
+        
     }
     public override void FixedUpdateNetwork()
     {
@@ -90,8 +95,9 @@ public class PlayerMovement : NetworkBehaviour
     #region Jump Functions
     private void Jump()
     {
-
-        if (UserInput.instance.controls.Jumpin.Jumpin.WasPressedThisFrame() && isGrounded() && !isJumpin)
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1.9f, 0.5f), CapsuleDirection2D.Horizontal, 0, whatIsGround);
+        
+        if (UserInput.instance.controls.Jumpin.Jumpin.WasPressedThisFrame() && isGrounded && !isJumpin)
         {
             animator.SetTrigger("Jump");
             isJumpin = true;
@@ -161,29 +167,15 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     #endregion
-    #region Ground Check
-    private bool isGrounded()
-    {
-        groundhit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, extraheight, whatIsGround);
-
-        if (groundhit.collider != null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    #endregion
+    
 
     #region Knockback
-   private void Knockback()
+    private void Knockback()
     {
         if (IGetKnockedDown > 0)
         {
             Pare = true;
-            
+
             if (isFacingRight)
             {
                 body.linearVelocity = new Vector2(moveSpeed * -1.5f, body.linearVelocity.y);
@@ -199,7 +191,56 @@ public class PlayerMovement : NetworkBehaviour
         {
             Pare = false;
         }
+
+        if (Yeet > 0)
+        {
+            Pare = true;
+
+            if (isFacingRight)
+            {
+                Turn();
+                body.linearVelocity = new Vector2(moveSpeed * 1.5f, body.linearVelocity.y);
+            }
+            else
+            {
+
+                body.linearVelocity = new Vector2(moveSpeed * 1.5f, body.linearVelocity.y);
+                Yeet -= Time.deltaTime;
+            }
+        }
+        else if (Yeet <= 0 && Pare)
+        {
+            Pare = false;
+        }
+
+        if (FlyAwayNow > 0)
+        {
+            body.linearVelocity = new Vector2(body.linearVelocity.x, 2f);
+        }
+    }
+    public void ApplyKnockback()
+    {
+        IGetKnockedDown = 0.15f;
+    }
+    public void ApplyKnockfront()
+    {
+        Yeet = 0.10f;
+    }
+    public void ApplyKnockup()
+    {
+        FlyAwayNow = 0.10f;
     }
     #endregion
+    #region Damaged
 
+    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
+    {
+        if (collision.gameObject.tag == "MyEnemy")
+        {
+            
+            ApplyKnockback();
+        }
+    }
+  
+    #endregion
 }

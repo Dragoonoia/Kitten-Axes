@@ -27,6 +27,7 @@ public class ControllerManager : MonoBehaviour
 
     private void ControllerUpDown()
     {
+
         moveInput = moveInput = UserInput.instance.moveInput.y; ;
         if (moveInput > 0)
         {

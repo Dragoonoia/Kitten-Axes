@@ -14,6 +14,7 @@ public class PlayerAttack : NetworkBehaviour
 
     [SerializeField] private float attackStamina = 0f;
     private PlayerMovement player;
+    PlayerMovement movement;
 
     Animator animator;
 
@@ -21,6 +22,7 @@ public class PlayerAttack : NetworkBehaviour
     {
         player = GetComponent<PlayerMovement>();
         animator = GetComponent<Animator>();
+        movement = gameObject.GetComponent<PlayerMovement>();
     }
 
 
@@ -82,7 +84,7 @@ public class PlayerAttack : NetworkBehaviour
 
     private void AttackDown()
     {
-        attackStamina = 0.5f;
+        attackStamina = 0.25f;
         animator.SetTrigger("AttackDown");
         Debug.Log("AttackedDown");
         hits = Physics2D.CircleCastAll(attackTransformdown.position, attackRange, transform.up, 0f, attackableLayer);
@@ -92,7 +94,10 @@ public class PlayerAttack : NetworkBehaviour
             if (iDamage != null)
             {
                 iDamage.damage(damageAmmount);
+                movement.ApplyKnockup();
             }
+
+            
             
         }
     }
