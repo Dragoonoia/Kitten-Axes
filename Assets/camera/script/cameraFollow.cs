@@ -6,9 +6,9 @@ public class cameraFollow : MonoBehaviour
     [SerializeField] private GameObject player;
     private Transform target;
 
-    public void SetCameraTarget()
+    public void SetCameraTarget(Transform abacate)
     {
-        player = GameObject.FindGameObjectWithTag("PlayerGaming");
+        player = abacate.gameObject;
         target = player.transform;
     }
     void Update()

@@ -18,6 +18,8 @@ public class PlayerAttack : NetworkBehaviour
 
     Animator animator;
 
+
+
     private void Start()
     {
         player = GetComponent<PlayerMovement>();
@@ -131,6 +133,11 @@ public class PlayerAttack : NetworkBehaviour
             {
                 iDamage.damage(damageAmmount);
             }
+            //player player = hits[i].collider.gameObject.GetComponent<PlayerMovement>();
+            //if (player != null)
+            //{
+            //    player.ApplyKnockfront();
+            //}
         }
     }
     #endregion

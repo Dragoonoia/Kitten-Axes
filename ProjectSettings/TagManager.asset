@@ -8,6 +8,10 @@ TagManager:
   - PlayerGaming
   - LoadingScreen
   - MyEnemy
+  - DeathLine
+  - FinishLine
+  - WinScreen
+  - LooseScreen
   layers:
   - Default
   - TransparentFX

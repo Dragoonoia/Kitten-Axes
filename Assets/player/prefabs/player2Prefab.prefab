@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2443227677706534495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3469659852368775847}
+  m_Layer: 7
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3469659852368775847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443227677706534495}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.04, y: -2.01, z: 0}
+  m_LocalScale: {x: 1.125, y: 1.125, z: 1.125}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7079547244775270024}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3212137451603983232
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +166,7 @@ Transform:
   - {fileID: 7651246257353496878}
   - {fileID: 2045227612654235404}
   - {fileID: 5958604798591727726}
+  - {fileID: 3469659852368775847}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &6237671403550561907
@@ -212,6 +244,7 @@ MonoBehaviour:
   - {fileID: 2826488722857190366}
   - {fileID: 2268416268937097899}
   - {fileID: 3531344344292484707}
+  - {fileID: 6247171767922573164}
 --- !u!114 &2826488722857190366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +415,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc86d2ef14787748bda56b308d9a7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvasLoad: {fileID: 0}
+  Loading: {fileID: 0}
+  Win: {fileID: 0}
+  Loose: {fileID: 0}
 --- !u!1 &6861477851550315206
 GameObject:
   m_ObjectHideFlags: 0

@@ -244,6 +244,7 @@ MonoBehaviour:
   - {fileID: 2826488722857190366}
   - {fileID: 2268416268937097899}
   - {fileID: 3531344344292484707}
+  - {fileID: 6247171767922573164}
 --- !u!114 &2826488722857190366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +344,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 7
@@ -414,7 +415,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc86d2ef14787748bda56b308d9a7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvasLoad: {fileID: 0}
+  Loading: {fileID: 0}
+  Win: {fileID: 0}
+  Loose: {fileID: 0}
 --- !u!1 &6861477851550315206
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,13 +61,16 @@
     <Analyzer Include="E:\Unity\Unity Editor\6000.0.22f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\enemy\scripts\dogAttack2.cs" />
+    <Compile Include="Assets\player\scripts\PlayerFinish.cs" />
     <Compile Include="Assets\player\scripts\PlayerAttack.cs" />
-    <Compile Include="Assets\player.cs" />
     <Compile Include="Assets\menu\animation\mapaAbrir\MapAnimation.cs" />
     <Compile Include="Assets\menu\scripts\ControllerManager.cs" />
     <Compile Include="Assets\menu\scripts\StartMatch.cs" />
     <Compile Include="Assets\scripts\input\UserInput.cs" />
+    <Compile Include="Assets\enemy\scripts\dogAttack.cs" />
     <Compile Include="Assets\player\scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\scripts\finish\Finisher.cs" />
     <Compile Include="Assets\camera\script\cameraFollow.cs" />
     <Compile Include="Assets\enemy\scripts\EnemySpawner.cs" />
     <Compile Include="Assets\interface\iDamage.cs" />

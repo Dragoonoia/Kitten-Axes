@@ -44,6 +44,15 @@ public class PlayerMovement : NetworkBehaviour
 
     private GameObject Player2;
 
+    public override void Spawned()
+    {
+        if (HasStateAuthority)
+        { 
+        cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
+        cameracode.SetCameraTarget(transform);
+        } 
+    }
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -51,8 +60,7 @@ public class PlayerMovement : NetworkBehaviour
         spright = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
 
-        cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
-        cameracode.SetCameraTarget();
+        
 
         Pare = false;
     }
@@ -115,24 +123,7 @@ public class PlayerMovement : NetworkBehaviour
             isJumpin = false;
         }
 
-        //if (UserInput.instance.controls.Jumpin.Jumpin.IsPressed())
-        //{
-        //if (jumptimeCounter > 0 && isJumpin)
-        // {
-        //body.linearVelocity = new Vector2(body.linearVelocityX, jumpForce);
-        //jumptimeCounter -= Time.deltaTime;
-        //}
-
-        //   else
-        //{
-        //isJumpin = false;
-        //}
-
-        //}
-        //if (UserInput.instance.controls.Jumpin.Jumpin.WasReleasedThisFrame())
-        //{
-        //isJumpin = false;
-        //}
+        
     }
 
     #endregion
@@ -215,7 +206,8 @@ public class PlayerMovement : NetworkBehaviour
 
         if (FlyAwayNow > 0)
         {
-            body.linearVelocity = new Vector2(body.linearVelocity.x, 2f);
+            body.linearVelocity = new Vector2(body.linearVelocity.x, body.linearVelocityY + 2f);
+            FlyAwayNow -= Time.deltaTime;
         }
     }
     public void ApplyKnockback()
@@ -228,7 +220,7 @@ public class PlayerMovement : NetworkBehaviour
     }
     public void ApplyKnockup()
     {
-        FlyAwayNow = 0.10f;
+        FlyAwayNow = 0.20f;
     }
     #endregion
     #region Damaged
@@ -239,6 +231,12 @@ public class PlayerMovement : NetworkBehaviour
         {
             
             ApplyKnockback();
+        }
+        if (collision.gameObject.tag == "DeathLine")
+        {
+            transform.position = new Vector2(16f, 6.5f);
+
+
         }
     }
   

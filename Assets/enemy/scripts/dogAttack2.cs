@@ -1,8 +1,10 @@
 using UnityEngine;
+using Fusion;
 
-public class player : MonoBehaviour
+public class dogAttack2 : NetworkBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Transform Range;
+
     void Start()
     {
         
