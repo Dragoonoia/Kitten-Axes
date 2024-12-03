@@ -1,6 +1,7 @@
 using UnityEngine;
+using Fusion;
 
-public class Finisher : MonoBehaviour
+public class Finisher : NetworkBehaviour
 {
     public bool P1Finished;
     void Start()

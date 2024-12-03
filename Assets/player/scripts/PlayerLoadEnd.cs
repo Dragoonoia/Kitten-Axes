@@ -8,9 +8,9 @@ public class PlayerLoadEnd : NetworkBehaviour
     [SerializeField] private GameObject Loading;
     [SerializeField] private GameObject Win;
     [SerializeField] private GameObject Loose;
-    private bool Won;
+    [SerializeField] private bool Won;
     Finisher LineFinish;
-    bool bonkers;
+    [SerializeField] private bool StartedCheck;
     void Awake()
     {
         
@@ -23,19 +23,20 @@ public class PlayerLoadEnd : NetworkBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public override void FixedUpdateNetwork()
     {
-        if (Runner.SessionInfo.PlayerCount == 2 && !bonkers)
+        if (Runner.SessionInfo.PlayerCount == 2 && !StartedCheck)
         {
             Loading.gameObject.SetActive(false);
             Win.gameObject.SetActive(false);
             Loose.gameObject.SetActive(false);
-            bonkers = true;
+            StartedCheck = true;
         }
 
 
-        if (!Won && LineFinish.P1Finished && HasStateAuthority)
+        if (Won == false && LineFinish.P1Finished == true && HasStateAuthority)
         {
+            Debug.Log("abacate");
             Loose.gameObject.SetActive(true);
         }
     }

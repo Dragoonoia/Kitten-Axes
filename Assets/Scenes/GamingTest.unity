@@ -20839,7 +20839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6576709079604366658, guid: c759dd16b4f4bef4b92499d4e0fd8ca8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5777884
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 6576709079604366658, guid: c759dd16b4f4bef4b92499d4e0fd8ca8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28026,6 +28026,7 @@ GameObject:
   - component: {fileID: 1252142807}
   - component: {fileID: 1252142806}
   - component: {fileID: 1252142808}
+  - component: {fileID: 1252142809}
   m_Layer: 0
   m_Name: FinishLine
   m_TagString: FinishLine
@@ -28107,6 +28108,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   P1Finished: 0
+--- !u!114 &1252142809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252142805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 301045064
+  ObjectInterest: 1
+  Flags: 1
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 1252142808}
 --- !u!1 &1253381736
 GameObject:
   m_ObjectHideFlags: 0
