@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 3531344344292484707}
   - component: {fileID: -6241948345378551233}
   - component: {fileID: 6247171767922573164}
+  - component: {fileID: -7563916312223273185}
   m_Layer: 7
   m_Name: playerPrefab
   m_TagString: PlayerGaming
@@ -245,6 +246,7 @@ MonoBehaviour:
   - {fileID: 2268416268937097899}
   - {fileID: 3531344344292484707}
   - {fileID: 6247171767922573164}
+  - {fileID: -7563916312223273185}
 --- !u!114 &2826488722857190366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +282,7 @@ MonoBehaviour:
   IGetKnockedDown: 0
   Yeet: 0
   FlyAwayNow: 0
-  isFacingRight: 0
+  _isFacingRight: 0
   sprite: {fileID: 0}
   groundCheck: {fileID: 1363838032400500715}
   whatIsGround:
@@ -418,6 +420,26 @@ MonoBehaviour:
   Loading: {fileID: 0}
   Win: {fileID: 0}
   Loose: {fileID: 0}
+  Won: 0
+  StartedCheck: 0
+--- !u!114 &-7563916312223273185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637375097469493217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 506319458, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: -6241948345378551233}
+  TotalWords: 1
+  ApplyTiming: 2
+  SyncSettings: 79
+  StateHashes: 00000000da00d59a7f443225d651e4eb73150354e3a2959b21d0543979de9c09921d14f415b524dc47ef5bf56f89212febaaf7c028a981077af3fe2e
+  TriggerHashes: 00000000095c0b56bb956dc7d3739813b7c45cb628a98107
 --- !u!1 &6861477851550315206
 GameObject:
   m_ObjectHideFlags: 0

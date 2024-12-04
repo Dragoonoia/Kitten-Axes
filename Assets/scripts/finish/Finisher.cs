@@ -3,15 +3,22 @@ using Fusion;
 
 public class Finisher : NetworkBehaviour
 {
-    public bool P1Finished;
+    [Networked] public bool P1Finished {  get; set; }
     void Start()
+    {
+        
+    }
+
+    public override void Spawned()
     {
         P1Finished = false;
     }
 
-    
+
     void Update()
     {
         
     }
+
+
 }

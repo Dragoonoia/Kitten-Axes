@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerMovement : NetworkBehaviour
+public class PlayerMovement : NetworkBehaviour, iDamage
 {
     cameraFollow cameracode;
     [Header("Movement")]
@@ -20,7 +20,7 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float FlyAwayNow = 0;
 
     [Header("IsThisRight?")]
-    [SerializeField] public bool isFacingRight;
+    [Networked] public bool isFacingRight {  get; set; }
     [SerializeField] private GameObject sprite;
 
     [Header("ithrewitontheGROUND")]
@@ -239,6 +239,11 @@ public class PlayerMovement : NetworkBehaviour
 
         }
     }
-  
+
+    public void damage(float damageAmmount)
+    {
+        ApplyKnockback();
+    }
+
     #endregion
 }
