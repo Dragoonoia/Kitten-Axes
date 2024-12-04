@@ -47,21 +47,26 @@ public class PlayerAttack : NetworkBehaviour
         {
             AttackDown();
         }
-        if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame() && player.isFacingRight == true && attackStamina == 0f)
+        if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame() && player.Net_FlipX == true && attackStamina == 0f)
         {
-            AttackBackward();
+            animator.SetTrigger("AttackBack");
+            AttackRight();
         }
-        else if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame() && player.isFacingRight == false && attackStamina == 0f)
+        else if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame() && player.Net_FlipX == false && attackStamina == 0f)
         {
-            AttackFoward();
+            animator.SetTrigger("AttackFront");
+            AttackLeft();
+            
         }
-        if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame() && player.isFacingRight == true && attackStamina == 0f)
+        if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame() && player.Net_FlipX == true && attackStamina == 0f)
         {
-            AttackFoward();
+            animator.SetTrigger("AttackFront");
+            AttackRight();
         }
-        else if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame() && player.isFacingRight == false && attackStamina == 0f)
+        else if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame() && player.Net_FlipX == false && attackStamina == 0f)
         {
-            AttackBackward();
+            animator.SetTrigger("AttackBack");
+            AttackLeft();
         }
 
     }
@@ -104,10 +109,10 @@ public class PlayerAttack : NetworkBehaviour
         }
     }
 
-    private void AttackBackward()
+    private void AttackLeft()
     {
         attackStamina = 0.5f;
-        animator.SetTrigger("AttackBack");
+        
         Debug.Log("AttackedLeft");
         hits = Physics2D.CircleCastAll(attackTransformleft.position, attackRange, transform.up, 0f, attackableLayer);
         for (int i = 0; i < hits.Length; i++)
@@ -120,9 +125,9 @@ public class PlayerAttack : NetworkBehaviour
         }
     }
 
-    private void AttackFoward()
+    private void AttackRight()
     {
-        animator.SetTrigger("AttackFront");
+        
         attackStamina = 0.5f;
         Debug.Log("AttackedRight");
         hits = Physics2D.CircleCastAll(attackTransformright.position, attackRange, transform.up, 0f, attackableLayer);

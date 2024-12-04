@@ -20,8 +20,8 @@ public class PlayerMovement : NetworkBehaviour, iDamage
     [SerializeField] private float FlyAwayNow = 0;
 
     [Header("IsThisRight?")]
-    [Networked] public bool isFacingRight {  get; set; }
-    [SerializeField] private GameObject sprite;
+    [Networked, OnChangedRender(nameof(METODOQUEUSAOFLIPX))] public bool Net_FlipX { get; set; }
+    [SerializeField] private SpriteRenderer spritey;
 
     [Header("ithrewitontheGROUND")]
     [SerializeField] private Transform groundCheck;
@@ -50,7 +50,12 @@ public class PlayerMovement : NetworkBehaviour, iDamage
         { 
         cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
         cameracode.SetCameraTarget(transform);
+        spritey = GetComponent<SpriteRenderer>();
+        Net_FlipX = true;
         } 
+        
+
+
     }
 
     private void Awake()
@@ -90,7 +95,7 @@ public class PlayerMovement : NetworkBehaviour, iDamage
         if (moveInput > 0 || moveInput < 0)
         {
             animator.SetBool("running", true);
-            TurnCheck();
+            //TurnCheck();
         }
         else if (moveInput == 0)
         {
@@ -130,84 +135,75 @@ public class PlayerMovement : NetworkBehaviour, iDamage
     #region turn functions
     private void TurnCheck()
     {
-        if (UserInput.instance.moveInput.x > 0 && !isFacingRight)
+        if (UserInput.instance.moveInput.x > 0 && !Net_FlipX)
         {
-            Turn();
+            METODOQUEUSAOFLIPX();
 
         }
-        else if (UserInput.instance.moveInput.x < 0 && isFacingRight)
+        else if (UserInput.instance.moveInput.x < 0 && Net_FlipX)
         {
-            Turn();
+            METODOQUEUSAOFLIPX();
 
         }
     }
-    private void Turn()
+
+    public void METODOQUEUSAOFLIPX()
     {
-        if (isFacingRight)
-        {
-
-            spright.flipX = true;
-            isFacingRight = false;
-        }
-        else
-        {
-
-            spright.flipX = false;
-            isFacingRight = true;
-        }
+        spritey.flipX = Net_FlipX;
     }
 
     #endregion
-    
-
     #region Knockback
     private void Knockback()
     {
-        if (IGetKnockedDown > 0)
+        if (IGetKnockedDown > 0 || Yeet > 0 || FlyAwayNow > 0)
         {
-            Pare = true;
-
-            if (isFacingRight)
+            if (IGetKnockedDown > 0)
             {
-                body.linearVelocity = new Vector2(moveSpeed * -1.5f, body.linearVelocity.y);
-                IGetKnockedDown -= Time.deltaTime;
+                Pare = true;
+
+                if (Net_FlipX)
+                {
+                    body.linearVelocity = new Vector2(moveSpeed * -1.5f, body.linearVelocity.y);
+                    IGetKnockedDown -= Time.deltaTime;
+                }
+                else
+                {
+                    METODOQUEUSAOFLIPX();
+                    body.linearVelocity = new Vector2(moveSpeed * -1.5f, body.linearVelocity.y);
+                }
             }
-            else
+            else if (IGetKnockedDown <= 0 && Pare)
             {
-                Turn();
-                body.linearVelocity = new Vector2(moveSpeed * -1.5f, body.linearVelocity.y);
+                Pare = false;
             }
-        }
-        else if (IGetKnockedDown <= 0 && Pare)
-        {
-            Pare = false;
-        }
 
-        if (Yeet > 0)
-        {
-            Pare = true;
-
-            if (isFacingRight)
+            if (Yeet > 0)
             {
-                Turn();
-                body.linearVelocity = new Vector2(moveSpeed * 1.5f, body.linearVelocity.y);
+                Pare = true;
+
+                if (Net_FlipX)
+                {
+                    METODOQUEUSAOFLIPX();
+                    body.linearVelocity = new Vector2(moveSpeed * 1.5f, body.linearVelocity.y);
+                }
+                else
+                {
+
+                    body.linearVelocity = new Vector2(moveSpeed * 1.5f, body.linearVelocity.y);
+                    Yeet -= Time.deltaTime;
+                }
             }
-            else
+            else if (Yeet <= 0 && Pare)
             {
-
-                body.linearVelocity = new Vector2(moveSpeed * 1.5f, body.linearVelocity.y);
-                Yeet -= Time.deltaTime;
+                Pare = false;
             }
-        }
-        else if (Yeet <= 0 && Pare)
-        {
-            Pare = false;
-        }
 
-        if (FlyAwayNow > 0)
-        {
-            body.linearVelocity = new Vector2(body.linearVelocity.x, body.linearVelocityY + 2f);
-            FlyAwayNow -= Time.deltaTime;
+            if (FlyAwayNow > 0)
+            {
+                body.linearVelocity = new Vector2(body.linearVelocity.x, 2f);
+                FlyAwayNow -= Time.deltaTime;
+            }
         }
     }
     public void ApplyKnockback()
