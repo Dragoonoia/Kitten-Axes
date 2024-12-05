@@ -251,8 +251,8 @@ MonoBehaviour:
   IGetKnockedDown: 0
   Yeet: 0
   FlyAwayNow: 0
-  _isFacingRight: 0
-  sprite: {fileID: 0}
+  _Net_FlipX: 0
+  spritey: {fileID: 6237671403550561907}
   groundCheck: {fileID: 1363838032400500715}
   whatIsGround:
     serializedVersion: 2

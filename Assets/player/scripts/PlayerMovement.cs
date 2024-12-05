@@ -51,7 +51,6 @@ public class PlayerMovement : NetworkBehaviour, iDamage
         cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
         cameracode.SetCameraTarget(transform);
         spritey = GetComponent<SpriteRenderer>();
-        Net_FlipX = true;
         } 
         
 
@@ -95,7 +94,7 @@ public class PlayerMovement : NetworkBehaviour, iDamage
         if (moveInput > 0 || moveInput < 0)
         {
             animator.SetBool("running", true);
-            //TurnCheck();
+            TurnCheck();
         }
         else if (moveInput == 0)
         {
@@ -135,14 +134,14 @@ public class PlayerMovement : NetworkBehaviour, iDamage
     #region turn functions
     private void TurnCheck()
     {
-        if (UserInput.instance.moveInput.x > 0 && !Net_FlipX)
+        if (UserInput.instance.moveInput.x > 0 && Net_FlipX)
         {
-            METODOQUEUSAOFLIPX();
+            Net_FlipX = false;
 
         }
-        else if (UserInput.instance.moveInput.x < 0 && Net_FlipX)
+        else if (UserInput.instance.moveInput.x < 0 && !Net_FlipX)
         {
-            METODOQUEUSAOFLIPX();
+            Net_FlipX = true;
 
         }
     }
@@ -169,34 +168,28 @@ public class PlayerMovement : NetworkBehaviour, iDamage
                 }
                 else
                 {
-                    METODOQUEUSAOFLIPX();
+                    Net_FlipX = true;
                     body.linearVelocity = new Vector2(moveSpeed * -1.5f, body.linearVelocity.y);
                 }
             }
-            else if (IGetKnockedDown <= 0 && Pare)
-            {
-                Pare = false;
-            }
+
 
             if (Yeet > 0)
             {
                 Pare = true;
 
-                if (Net_FlipX)
+                if (!Net_FlipX)
                 {
-                    METODOQUEUSAOFLIPX();
-                    body.linearVelocity = new Vector2(moveSpeed * 1.5f, body.linearVelocity.y);
-                }
-                else
-                {
-
+                    
                     body.linearVelocity = new Vector2(moveSpeed * 1.5f, body.linearVelocity.y);
                     Yeet -= Time.deltaTime;
                 }
-            }
-            else if (Yeet <= 0 && Pare)
-            {
-                Pare = false;
+                else
+                {
+                    Net_FlipX = false;
+                    body.linearVelocity = new Vector2(moveSpeed * 1.5f, body.linearVelocity.y);
+                    
+                }
             }
 
             if (FlyAwayNow > 0)
@@ -204,6 +197,14 @@ public class PlayerMovement : NetworkBehaviour, iDamage
                 body.linearVelocity = new Vector2(body.linearVelocity.x, 2f);
                 FlyAwayNow -= Time.deltaTime;
             }
+        }
+        if (Yeet <= 0 && Pare)
+        {
+            Pare = false;
+        }
+        if (IGetKnockedDown <= 0 && Pare)
+        {
+            Pare = false;
         }
     }
     public void ApplyKnockback()

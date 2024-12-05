@@ -47,23 +47,23 @@ public class PlayerAttack : NetworkBehaviour
         {
             AttackDown();
         }
-        if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame() && player.Net_FlipX == true && attackStamina == 0f)
+        if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame() && player.Net_FlipX == false && attackStamina == 0f)
         {
             animator.SetTrigger("AttackBack");
             AttackRight();
         }
-        else if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame() && player.Net_FlipX == false && attackStamina == 0f)
+        else if (UserInput.instance.controls.Attack.AttackLeft.WasPressedThisFrame() && player.Net_FlipX == true && attackStamina == 0f)
         {
             animator.SetTrigger("AttackFront");
             AttackLeft();
             
         }
-        if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame() && player.Net_FlipX == true && attackStamina == 0f)
+        if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame() && player.Net_FlipX == false && attackStamina == 0f)
         {
             animator.SetTrigger("AttackFront");
             AttackRight();
         }
-        else if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame() && player.Net_FlipX == false && attackStamina == 0f)
+        else if (UserInput.instance.controls.Attack.AttackRight.WasPressedThisFrame() && player.Net_FlipX == true && attackStamina == 0f)
         {
             animator.SetTrigger("AttackBack");
             AttackLeft();
