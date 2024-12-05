@@ -257,6 +257,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  Pare: 0
 --- !u!61 &1429395416461337220
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -391,6 +392,7 @@ MonoBehaviour:
   Loose: {fileID: 0}
   Won: 0
   StartedCheck: 0
+  Movement: {fileID: 2268416268937097899}
 --- !u!114 &-7563916312223273185
 MonoBehaviour:
   m_ObjectHideFlags: 0

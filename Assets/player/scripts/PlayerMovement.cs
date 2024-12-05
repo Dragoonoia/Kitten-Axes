@@ -38,7 +38,7 @@ public class PlayerMovement : NetworkBehaviour, iDamage
 
     private RaycastHit2D groundhit;
 
-    private bool Pare;
+    public bool Pare;
 
     Animator animator;
 
@@ -51,6 +51,7 @@ public class PlayerMovement : NetworkBehaviour, iDamage
         cameracode = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
         cameracode.SetCameraTarget(transform);
         spritey = GetComponent<SpriteRenderer>();
+            UserInput.instance.OnDisable();
         } 
         
 

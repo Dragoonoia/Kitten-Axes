@@ -11,6 +11,8 @@ public class PlayerLoadEnd : NetworkBehaviour
     [SerializeField] private bool Won;
     Finisher LineFinish;
     [SerializeField] private bool StartedCheck;
+    
+    
     void Awake()
     {
         
@@ -19,6 +21,7 @@ public class PlayerLoadEnd : NetworkBehaviour
             Loose = GameObject.FindGameObjectWithTag("LooseScreen");
             LineFinish = GameObject.FindGameObjectWithTag("FinishLine").GetComponent<Finisher>();
             Won = false;
+            
         
     }
 
@@ -30,6 +33,7 @@ public class PlayerLoadEnd : NetworkBehaviour
             Loading.gameObject.SetActive(false);
             Win.gameObject.SetActive(false);
             Loose.gameObject.SetActive(false);
+            UserInput.instance.OnEnable();
             StartedCheck = true;
         }
 

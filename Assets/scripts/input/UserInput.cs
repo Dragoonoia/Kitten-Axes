@@ -26,12 +26,12 @@ public class UserInput : MonoBehaviour
         controls.Movement.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         controls.Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         controls.Disable();
     }
