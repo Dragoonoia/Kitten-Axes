@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5366379324708434504}
   - component: {fileID: 5986584987372561427}
-  - component: {fileID: -8526341332476374316}
   - component: {fileID: -9196015718773375495}
   - component: {fileID: 3640085820647521717}
-  m_Layer: 0
+  - component: {fileID: -8526341332476374316}
+  m_Layer: 7
   m_Name: Pitu
   m_TagString: MyEnemy
   m_Icon: {fileID: 0}
@@ -90,6 +90,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-9196015718773375495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820918336344272805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f863418fee31f34eabe9f11751d790a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  _CurrentHealth: 0
+  Morri: 0
+--- !u!114 &3640085820647521717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820918336344272805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 3927135922
+  ObjectInterest: 1
+  Flags: 786433
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: -9196015718773375495}
 --- !u!61 &-8526341332476374316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -136,35 +169,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6819458, y: 0.609375}
   m_EdgeRadius: 0
---- !u!114 &-9196015718773375495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5820918336344272805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f863418fee31f34eabe9f11751d790a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 1
-  _CurrentHealth: 0
---- !u!114 &3640085820647521717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5820918336344272805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SortKey: 3927135922
-  ObjectInterest: 1
-  Flags: 786433
-  NestedObjects: []
-  NetworkedBehaviours:
-  - {fileID: -9196015718773375495}
