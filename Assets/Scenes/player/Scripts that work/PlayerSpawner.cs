@@ -16,6 +16,7 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
         if (player == Runner.LocalPlayer && Runner.SessionInfo.PlayerCount == 2)
         {
             Runner.Spawn(player2Prefab, new Vector2(-23.92f, 1.67f), Quaternion.identity);
+            
         }
         }
 

@@ -16,6 +16,7 @@ public class enemy1 : NetworkBehaviour, iDamage
 
     public void damage(float damageAmmount)
     {
+        Debug.Log("tester");
         Object.RequestStateAuthority();
         Object.RequestStateAuthority();
         Morri = true;

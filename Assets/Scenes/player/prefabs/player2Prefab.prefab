@@ -134,14 +134,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7079547244775270024}
   - component: {fileID: 6237671403550561907}
+  - component: {fileID: 3531344344292484707}
+  - component: {fileID: 5687343233623301390}
+  - component: {fileID: 6247171767922573164}
   - component: {fileID: 6073833846622806804}
   - component: {fileID: 2826488722857190366}
-  - component: {fileID: 2268416268937097899}
   - component: {fileID: 1429395416461337220}
   - component: {fileID: 6026703938039644216}
-  - component: {fileID: 3531344344292484707}
   - component: {fileID: -6241948345378551233}
-  - component: {fileID: 6247171767922573164}
   - component: {fileID: 3981851138158132611}
   m_Layer: 7
   m_Name: player2Prefab
@@ -225,6 +225,71 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &3531344344292484707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637375097469493217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca4499fc10e79bf46ac002dfa8b597a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  jumpForce: 12
+  jumpTime: 0
+  isJumpin: 0
+  IGetKnockedDown: 0
+  Yeet: 0
+  FlyAwayNow: 0
+  _Net_FlipX: 0
+  spritey: {fileID: 6237671403550561907}
+  groundCheck: {fileID: 1363838032400500715}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  Pare: 0
+--- !u!114 &5687343233623301390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637375097469493217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb19d0046a2185d469823d57dab007ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTransformup: {fileID: 5922462950091772291}
+  attackTransformdown: {fileID: 7651246257353496878}
+  attackTransformleft: {fileID: 2045227612654235404}
+  attackTransformright: {fileID: 5958604798591727726}
+  attackRange: 1
+  attackableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  damageAmmount: 1
+  attackStamina: 0
+--- !u!114 &6247171767922573164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637375097469493217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d402cc16fa4021b439ee559aab0c2029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loading: {fileID: 0}
+  Win: {fileID: 0}
+  Loose: {fileID: 0}
+  Won: 0
+  StartedCheck: 0
 --- !u!114 &6073833846622806804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,13 +304,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 478192035
   ObjectInterest: 1
-  Flags: 262145
+  Flags: 786433
   NestedObjects: []
   NetworkedBehaviours:
-  - {fileID: 2826488722857190366}
-  - {fileID: 2268416268937097899}
   - {fileID: 3531344344292484707}
+  - {fileID: 5687343233623301390}
   - {fileID: 6247171767922573164}
+  - {fileID: 2826488722857190366}
   - {fileID: 3981851138158132611}
 --- !u!114 &2826488722857190366
 MonoBehaviour:
@@ -263,32 +328,6 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
---- !u!114 &2268416268937097899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5637375097469493217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 051cbc3ae60e00f41af792220a1aba12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 12
-  jumpForce: 12
-  jumpTime: 0.35
-  isJumpin: 0
-  IGetKnockedDown: 0
-  Yeet: 0
-  FlyAwayNow: 0
-  _Net_FlipX: 0
-  spritey: {fileID: 6237671403550561907}
-  groundCheck: {fileID: 1363838032400500715}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  Pare: 0
 --- !u!61 &1429395416461337220
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -362,28 +401,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3531344344292484707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5637375097469493217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5817dd3eed05bd409d8cc5a568224f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackTransformup: {fileID: 5922462950091772291}
-  attackTransformdown: {fileID: 7651246257353496878}
-  attackTransformleft: {fileID: 2045227612654235404}
-  attackTransformright: {fileID: 5958604798591727726}
-  attackRange: 1
-  attackableLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  damageAmmount: 1
-  attackStamina: 0
 --- !u!95 &-6241948345378551233
 Animator:
   serializedVersion: 7
@@ -406,24 +423,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6247171767922573164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5637375097469493217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc86d2ef14787748bda56b308d9a7f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Loading: {fileID: 0}
-  Win: {fileID: 0}
-  Loose: {fileID: 0}
-  Won: 0
-  StartedCheck: 0
-  Movement: {fileID: 2268416268937097899}
 --- !u!114 &3981851138158132611
 MonoBehaviour:
   m_ObjectHideFlags: 0

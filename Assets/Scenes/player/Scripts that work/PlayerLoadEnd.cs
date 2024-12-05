@@ -25,6 +25,11 @@ public class PlayerLoadEnd : NetworkBehaviour
         
     }
 
+    public override void Spawned()
+    {
+    
+    }
+
     // Update is called once per frame
     public override void FixedUpdateNetwork()
     {
