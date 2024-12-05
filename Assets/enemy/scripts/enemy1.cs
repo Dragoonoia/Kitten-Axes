@@ -7,7 +7,10 @@ public class enemy1 : NetworkBehaviour, iDamage
 
     [SerializeField] private float maxHealth = 1f;
     [Networked] public float CurrentHealth {  get; set; }
+    float damageA;
     //public float CurrentHealth;
+
+    public bool Morri;
 
     private bool Spawnou;
 
@@ -15,7 +18,8 @@ public class enemy1 : NetworkBehaviour, iDamage
     {
         Object.RequestStateAuthority();
         Object.RequestStateAuthority();
-        CurrentHealth -= damageAmmount;
+        Morri = true;
+        damageA = damageAmmount;
         
     }
 
@@ -40,10 +44,17 @@ public class enemy1 : NetworkBehaviour, iDamage
         {
             return;
         }
-        if (CurrentHealth <= 0)
+        if (Morri && HasStateAuthority)
         {
-            Die();
+            CurrentHealth -= damageA;
+
+            if (CurrentHealth <= 0)
+            {
+                Die();
+            }
         }
+
+       
     }
 }
 
