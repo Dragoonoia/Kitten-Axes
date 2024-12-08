@@ -33,11 +33,14 @@ public class enemy1 : NetworkBehaviour, iDamage
         CurrentHealth = maxHealth;
         Spawnou = true;
     }
-    private void Die()
+    public void Die()
         {
-        Debug.Log("abacate");
+        Object.RequestStateAuthority();
+        Object.RequestStateAuthority();
+        Debug.Log("BixoDied");
+        Morri = true;
         Runner.Despawn(Object);
-        }
+    }
 
     public override void FixedUpdateNetwork()
     {
@@ -45,14 +48,10 @@ public class enemy1 : NetworkBehaviour, iDamage
         {
             return;
         }
-        if (Morri && HasStateAuthority)
+        if (Morri)
         {
-            CurrentHealth -= damageA;
 
-            if (CurrentHealth <= 0)
-            {
-                Die();
-            }
+                Runner.Despawn(Object);
         }
 
        

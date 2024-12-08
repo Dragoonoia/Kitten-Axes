@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerMovement : NetworkBehaviour, iDamage
+public class PlayerMovement : NetworkBehaviour
 {
     cameraFollow cameracode;
     [Header("Movement")]
@@ -43,6 +43,8 @@ public class PlayerMovement : NetworkBehaviour, iDamage
     Animator animator;
 
     private GameObject Player2;
+
+    public bool NotKnock;
 
     public override void Spawned()
     {
@@ -89,6 +91,7 @@ public class PlayerMovement : NetworkBehaviour, iDamage
     #region Movement Functions
     private void Move()
     {
+        
         moveInput = UserInput.instance.moveInput.x;
 
         body.linearVelocity = new Vector2(moveInput * moveSpeed, body.linearVelocity.y);
@@ -210,7 +213,10 @@ public class PlayerMovement : NetworkBehaviour, iDamage
     }
     public void ApplyKnockback()
     {
+        if (!NotKnock)
+        { 
         IGetKnockedDown = 0.15f;
+        }
     }
     public void ApplyKnockfront()
     {
@@ -238,8 +244,10 @@ public class PlayerMovement : NetworkBehaviour, iDamage
         }
     }
 
-    public void damage(float damageAmmount)
+    public void Poct()
     {
+        Object.RequestStateAuthority();
+        Object.RequestStateAuthority();
         ApplyKnockback();
     }
 

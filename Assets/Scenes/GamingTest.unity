@@ -8488,16 +8488,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1380914450}
     m_Modifications:
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
-      propertyPath: Flags
-      value: 262145
-      objectReference: {fileID: 0}
-    - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: SortKey
       value: 2438536861
-      objectReference: {fileID: 0}
-    - target: {fileID: 5366379324708434504, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5366379324708434504, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8539,17 +8531,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5366379324708434504, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5820918336344272805, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: m_Name
       value: Pitu
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820918336344272805, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16950,7 +16934,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: Flags
-      value: 1
+      value: 786433
       objectReference: {fileID: 0}
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: SortKey
@@ -19320,7 +19304,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: Flags
-      value: 1
+      value: 262145
       objectReference: {fileID: 0}
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: SortKey
@@ -23704,10 +23688,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1380914450}
     m_Modifications:
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
-      propertyPath: Flags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: SortKey
       value: 529378248
       objectReference: {fileID: 0}
@@ -23755,10 +23735,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pitu (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 5820918336344272805, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23772,10 +23748,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1380914450}
     m_Modifications:
-    - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
-      propertyPath: Flags
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: SortKey
       value: 4212679819
@@ -23823,10 +23795,6 @@ PrefabInstance:
     - target: {fileID: 5820918336344272805, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: m_Name
       value: Pitu (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820918336344272805, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29090,7 +29058,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: Flags
-      value: 1
+      value: 786433
       objectReference: {fileID: 0}
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: SortKey
@@ -41033,7 +41001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 3604346022
   ObjectInterest: 1
-  Flags: 1
+  Flags: 786433
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 1804029331}
@@ -46573,7 +46541,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: Flags
-      value: 1
+      value: 786433
       objectReference: {fileID: 0}
     - target: {fileID: 3640085820647521717, guid: c9f58d17e90740d48af5eccd982207d5, type: 3}
       propertyPath: SortKey

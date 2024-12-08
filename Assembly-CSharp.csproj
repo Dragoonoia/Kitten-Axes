@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scenes\player\Scripts that work\PlayerFinish.cs" />
+    <Compile Include="Assets\Scenes\player\Scripts that work\AttackArea.cs" />
     <Compile Include="Assets\enemy\scripts\dogAttack2.cs" />
     <Compile Include="Assets\menu\animation\mapaAbrir\MapAnimation.cs" />
     <Compile Include="Assets\menu\scripts\ControllerManager.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\enemy\scripts\enemyMoveSide.cs" />
     <Compile Include="Assets\Scenes\player\Scripts that work\PlayerLoadEnd.cs" />
     <Compile Include="Assets\enemy\scripts\enemy1.cs" />
+    <Compile Include="Assets\Scenes\player\Scripts that work\PlayerAttack2.cs" />
     <Compile Include="Assets\menu\scripts\menuManager.cs" />
     <Compile Include="Assets\Scenes\player\Scripts that work\PlayerMovement.cs" />
     <Compile Include="Assets\scripts\input\Controls.cs" />
